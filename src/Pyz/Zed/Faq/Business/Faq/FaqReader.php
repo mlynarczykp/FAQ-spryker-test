@@ -19,7 +19,7 @@ class FaqReader implements FaqReaderInterface
     }
 
     /**
-     * @param int $idFaqq
+     * @param int $idFaq
      *
      * @return \Generated\Shared\Transfer\FaqTransfer|null
      */
