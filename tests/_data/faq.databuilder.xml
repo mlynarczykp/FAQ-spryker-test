@@ -5,7 +5,7 @@
     xsi:schemaLocation="spryker:transfer-01 http://static.spryker.com/transfer-01.xsd">
 
     <transfer name="Faq">
-        <property name="idQuestion" type="int" dataBuilderRule="randomDigitNotNull"/>
+        <property name="idQuestion" type="int" dataBuilderRule="randomDigitNotNull()"/>
         <property name="question" type="string" dataBuilderRule="realText(100, 2)/>"/>
         <property name="answer" type="string" dataBuilderRule="realText(255, 2)/>"/>
         <property name="isActive" type="boolean" dataBuilderRule="boolean"/>

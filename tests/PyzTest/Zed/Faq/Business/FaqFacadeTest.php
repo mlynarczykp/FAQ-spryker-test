@@ -29,15 +29,17 @@ class FaqFacadeTest extends Unit
     public function testDataIsReadingCorrectly(): void
     {
         // Arrange
-//        $faqTransfer = (new FaqBuilder([
-//            'idQuestion' => 1
-//        ]))->build();
-        $faqTransfer = 1;
+        $faqTransfer = (new FaqBuilder([
+            'idQuestion' => 1,
+            'question' => 'This is a test question?',
+            'answer' => 'This is a test answer.',
+            'is_active' => false
+        ]))->build();
 
         // Act
-        $test = $this->tester->getFacade()->findFaqById($faqTransfer);
+        $faqResultTransfer = $this->tester->getFacade()->saveFaq($faqTransfer);
 
         // Assert
-        $this->assertSame(1, $test->findFaqById($faqTransfer));
+        $this->assertSame($faqTransfer, $faqResultTransfer);
     }
 }
