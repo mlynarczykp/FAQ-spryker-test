@@ -6,6 +6,7 @@ use Generated\Shared\Transfer\FaqTransfer;
 use Orm\Zed\Faq\Persistence\PyzFaq;
 use Orm\Zed\Faq\Persistence\PyzFaqQuery;
 use Spryker\Zed\Kernel\Persistence\AbstractRepository;
+use Generated\Shared\Transfer\FaqCollectionTransfer;
 
 class FaqRepository extends AbstractRepository implements FaqRepositoryInterface
 {
@@ -43,4 +44,22 @@ class FaqRepository extends AbstractRepository implements FaqRepositoryInterface
     {
         return (new FaqTransfer())->fromArray($faqEntity->toArray());
     }
+
+    /**
+     * @param \Generated\Shared\Transfer\FaqCollectionTransfer $faqRestApiTransfer
+     * @return \Generated\Shared\Transfer\FaqCollectionTransfer $faqRestApiTransfer
+     */
+    public function getFaqCollection(FaqCollectionTransfer $faqRestApiTransfer): FaqCollectionTransfer
+    {
+        $faqCollection = $this->createPyzFaqQuery()
+            ->find();
+
+        foreach ($faqCollection as $faqEntity) {
+            $faqTransfer = (new FaqTransfer())->fromArray($faqEntity->toArray());
+            $faqRestApiTransfer->addFaq($faqTransfer);
+        }
+
+        return $faqRestApiTransfer;
+    }
+
 }
