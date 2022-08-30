@@ -68,4 +68,19 @@ class FaqFacade extends AbstractFacade implements FaqFacadeInterface
             ->getFaqCollection($faqRestApiTransfer);
     }
 
+
+    /**
+     * @param \Generated\Shared\Transfer\FaqTransfer $faqTransfer
+     * @return \Generated\Shared\Transfer\FaqTransfer|null
+     */
+    public function getOneFaq(FaqTransfer $faqTransfer): ?FaqTransfer
+    {
+        $result = $this->findFaqById($faqTransfer->getIdQuestion());
+
+        if ($result === null) {
+            return null;
+        } else {
+            return $faqTransfer->fromArray($result->toArray());
+        }
+    }
 }

@@ -49,4 +49,9 @@ interface FaqFacadeInterface
      */
     public function getFaqCollection(FaqCollectionTransfer $faqRestApiTransfer): FaqCollectionTransfer;
 
+    /**
+     * @param \Generated\Shared\Transfer\FaqTransfer $faqTransfer
+     * @return \Generated\Shared\Transfer\FaqTransfer|null
+     */
+    public function getOneFaq(FaqTransfer $faqTransfer): ?FaqTransfer;
 }

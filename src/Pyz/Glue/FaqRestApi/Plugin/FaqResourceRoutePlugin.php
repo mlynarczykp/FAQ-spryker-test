@@ -13,10 +13,16 @@ use Spryker\Glue\Kernel\AbstractPlugin;
  */
 class FaqResourceRoutePlugin extends AbstractPlugin implements ResourceRoutePluginInterface
 {
-    public function configure(ResourceRouteCollectionInterface $resourceRouteCollection): ResourceRouteCollectionInterface
-    {
+    public function configure(ResourceRouteCollectionInterface $resourceRouteCollection
+    ): ResourceRouteCollectionInterface {
         $resourceRouteCollection
             ->addGet('get', false);
+        $resourceRouteCollection
+            ->addPost('post', true);
+        $resourceRouteCollection
+            ->addPatch('patch', true);
+        $resourceRouteCollection
+            ->addDelete('delete', true);
 
         return $resourceRouteCollection;
     }

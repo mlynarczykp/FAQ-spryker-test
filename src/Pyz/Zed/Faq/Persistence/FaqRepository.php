@@ -61,5 +61,4 @@ class FaqRepository extends AbstractRepository implements FaqRepositoryInterface
 
         return $faqRestApiTransfer;
     }
-
 }

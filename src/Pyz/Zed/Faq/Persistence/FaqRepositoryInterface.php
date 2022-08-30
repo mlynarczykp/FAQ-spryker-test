@@ -19,5 +19,4 @@ interface FaqRepositoryInterface
      * @return \Generated\Shared\Transfer\FaqCollectionTransfer $faqRestApiTransfer
      */
     public function getFaqCollection(FaqCollectionTransfer $faqRestApiTransfer): FaqCollectionTransfer;
-
 }

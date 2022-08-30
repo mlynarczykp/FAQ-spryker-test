@@ -10,6 +10,8 @@ use Pyz\Glue\FaqRestApi\Processor\Mapper\FaqResourceMapper;
 use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface;
 use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface;
 use Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface;
+use Generated\Shared\Transfer\FaqTransfer;
+use Generated\Shared\Transfer\RestErrorMessageTransfer;
 
 class FaqReader implements FaqReaderInterface
 {
@@ -38,7 +40,7 @@ class FaqReader implements FaqReaderInterface
     }
 
     /**
-     * @param RestRequestInterface $restRequest
+     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
      * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
      */
     public function getFaq(RestRequestInterface $restRequest): RestResponseInterface
@@ -55,6 +57,38 @@ class FaqReader implements FaqReaderInterface
             );
             $restResponse->addResource($restResource);
         }
+
+        return $restResponse;
+    }
+
+    /**
+     * @param RestRequestInterface $restRequest
+     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
+     */
+    public function getOneFaq(RestRequestInterface $restRequest, $id): RestResponseInterface
+    {
+        $restResponse = $this->restResourceBuilder->createRestResponse();
+
+        $faqTransfer = new FaqTransfer();
+        $faqTransfer->setIdQuestion($id);
+        $faqTransfer = $this->faqRestApiClient->getOneFaq($faqTransfer);
+
+        if (!$faqTransfer) {
+            $restResponse->addError(
+                (new RestErrorMessageTransfer())
+                    ->setCode('Faq with given id is not found')
+                    ->setStatus(404)
+            );
+
+            return $restResponse;
+        }
+
+        $restResource = $this->restResourceBuilder->createRestResource(
+            FaqRestApiConfig::RESOURCE_FAQ,
+            $faqTransfer->getIdQuestion(),
+            $this->faqMapper->mapFaqDataToFaqRestAttributes($faqTransfer->toArray())
+        );
+        $restResponse->addResource($restResource);
 
         return $restResponse;
     }
