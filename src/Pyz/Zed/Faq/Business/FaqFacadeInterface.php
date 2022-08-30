@@ -3,6 +3,7 @@
 namespace Pyz\Zed\Faq\Business;
 
 use Generated\Shared\Transfer\FaqTransfer;
+use Generated\Shared\Transfer\FaqCollectionTransfer;
 
 interface FaqFacadeInterface
 {
@@ -41,4 +42,16 @@ interface FaqFacadeInterface
      *
      */
     public function deleteFaq(FaqTransfer $faqTransfer): void;
+
+    /**
+     * @param \Generated\Shared\Transfer\FaqCollectionTransfer $faqRestApiTransfer
+     * @return \Generated\Shared\Transfer\FaqCollectionTransfer $faqRestApiTransfer
+     */
+    public function getFaqCollection(FaqCollectionTransfer $faqRestApiTransfer): FaqCollectionTransfer;
+
+    /**
+     * @param \Generated\Shared\Transfer\FaqTransfer $faqTransfer
+     * @return \Generated\Shared\Transfer\FaqTransfer|null
+     */
+    public function getOneFaq(FaqTransfer $faqTransfer): ?FaqTransfer;
 }
