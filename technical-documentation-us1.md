@@ -54,5 +54,3 @@ package="src.Orm.Zed.Faq.Persistence">
 <column name="is_active" default="true" type="BOOLEAN"/>
 </table>
 </database>
-.```
-
