@@ -40,7 +40,7 @@ The module does not have a fully functional unit test.
 ## Technical documentation
 
 Schema of a table in a database:
-<myxml>
+```xml
 <?xml version="1.0"?>
 <database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 name="zed"
@@ -54,5 +54,5 @@ package="src.Orm.Zed.Faq.Persistence">
 <column name="is_active" default="true" type="BOOLEAN"/>
 </table>
 </database>
-</myxml>
+.```
 
