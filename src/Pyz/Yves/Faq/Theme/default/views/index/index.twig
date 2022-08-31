@@ -13,9 +13,31 @@
             <h3>
                 Q: {{ question.question }}
             </h3>
-            <p style="margin-bottom: 3%">
+            <p>
                 A: {{ question.answer }}
             </p>
+            <h5 style="margin-left: 2%">
+                Was this answer helpful?
+            </h5>
+            <p style="margin-left: 3%">
+                Votes Up:
+            </p>
+            <p style="margin-left: 3%">
+                Votes Down:
+            </p>
+            <div style="margin-left: 10%">
+                <form method="post" action="/faq/vote" style="margin-bottom: 3%">
+                    <input type="hidden" name="id_faq" value="{{ question.id_question }}">
+                    <button name="vote_up" value="1"
+                            style="background-color: #1ab394; font-size: 15px; margin-right: 1%; padding: 1%; border-radius: 15px;">
+                        Vote Up
+                    </button>
+                    <button name="vote_down" value="1"
+                            style="background-color: crimson; font-size: 15px; padding: 1%; border-radius: 15px;">
+                        Vote Down
+                    </button>
+                </form>
+            </div>
         {% endfor %}
     </div>
 {% endblock %}

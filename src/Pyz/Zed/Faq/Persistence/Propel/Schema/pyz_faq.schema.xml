@@ -4,10 +4,27 @@
           xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd"
           namespace="Orm\Zed\Faq\Persistence"
           package="src.Orm.Zed.Faq.Persistence">
+
     <table name="pyz_faq" phpName="PyzFaq">
         <column name="id_question" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
         <column name="question" required="true" type="VARCHAR" size="100"/>
         <column name="answer" type="VARCHAR" size="255"/>
         <column name="is_active" default="true" type="BOOLEAN"/>
+    </table>
+
+    <table name="pyz_faq_votes" phpName="PyzFaqVotes">
+        <column name="id_vote" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="id_faq" type="INTEGER" primaryKey="true"/>
+        <column name="id_customer" type="INTEGER" primaryKey="true"/>
+        <column name="votes_up" type="INTEGER"/>
+        <column name="votes_down" type="INTEGER"/>
+
+        <foreign-key foreignTable="pyz_faq" onDelete = "cascade">
+            <reference local="id_faq" foreign="id_question"/>
+        </foreign-key>
+
+        <foreign-key foreignTable="spy_customer" onDelete = "cascade">
+            <reference local="id_customer" foreign="id_customer"/>
+        </foreign-key>
     </table>
 </database>

@@ -3,6 +3,7 @@
 namespace Pyz\Client\Faq;
 
 use Generated\Shared\Transfer\FaqCollectionTransfer;
+use Generated\Shared\Transfer\FaqVoteTransfer;
 use Spryker\Client\Kernel\AbstractClient;
 
 /**
@@ -24,5 +25,19 @@ class FaqClient extends AbstractClient implements FaqClientInterface
         return $this->getFactory()
             ->createFaqZedStub()
             ->getFaqCollection($faqCollectionTransfer);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @api
+     *
+     * @param \Generated\Shared\Transfer\FaqVoteTransfer $faqVoteTransfer
+     *
+     * @return \Generated\Shared\Transfer\FaqVoteTransfer
+     */
+    public function addVote(FaqVoteTransfer $faqVoteTransfer): FaqVoteTransfer {
+
+        return $this->getFactory()->createFaqZedStub()->addVote($faqVoteTransfer);
     }
 }

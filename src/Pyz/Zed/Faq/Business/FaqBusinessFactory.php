@@ -9,6 +9,8 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 use Pyz\Zed\Faq\Business\Faq\FaqReaderInterface;
 use Pyz\Zed\Faq\Business\Faq\FaqReader;
 use Pyz\Zed\Faq\Business\Faq\FaqDeleterInterface;
+use Pyz\Zed\Faq\Business\Faq\VoteSaverInterface;
+use Pyz\Zed\Faq\Business\Faq\VoteSaver;
 
 /**
  * @method \Pyz\Zed\Faq\Persistence\FaqEntityManagerInterface getEntityManager()
@@ -42,6 +44,16 @@ class FaqBusinessFactory extends AbstractBusinessFactory
     public function createFaqDeleter(): FaqDeleterInterface
     {
         return new FaqDeleter(
+            $this->getEntityManager()
+        );
+    }
+
+    /**
+     * @return \Pyz\Zed\Faq\Business\Faq\VoteSaverInterface
+     */
+    public function createVoteSaver(): VoteSaverInterface
+    {
+        return new VoteSaver(
             $this->getEntityManager()
         );
     }

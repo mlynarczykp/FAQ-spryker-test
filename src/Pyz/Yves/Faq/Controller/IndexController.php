@@ -13,7 +13,7 @@ use Spryker\Yves\Kernel\View\View;
 class IndexController extends AbstractController
 {
     /**
-     * @param Symfony\Component\HttpFoundation\Request $request
+     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return \Spryker\Yves\Kernel\View\View
      */

@@ -8,4 +8,11 @@
         <property name="answer" type="string"/>
         <property name="isActive" type="boolean"/>
     </transfer>
+    <transfer name="FaqVote">
+        <property name="idVote" type="int" />
+        <property name="idCustomer" type="int" />
+        <property name="idFaq" type="int"/>
+        <property name="voteUp" type="int"/>
+        <property name="voteDown" type="int"/>
+    </transfer>
 </transfers>

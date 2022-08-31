@@ -13,6 +13,7 @@ class FaqDependencyProvider extends AbstractDependencyProvider
      * @param \Spryker\Client\Kernel\Container $container
      *
      * @return \Spryker\Client\Kernel\Container
+     * @throws \Spryker\Service\Container\Exception\FrozenServiceException
      */
     public function provideServiceLayerDependencies(Container $container): Container
     {
@@ -25,6 +26,7 @@ class FaqDependencyProvider extends AbstractDependencyProvider
      * @param \Spryker\Client\Kernel\Container $container
      *
      * @return \Spryker\Client\Kernel\Container
+     * @throws \Spryker\Service\Container\Exception\FrozenServiceException
      */
     protected function addZedRequestClient(Container $container): Container
     {

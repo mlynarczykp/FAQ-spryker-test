@@ -11,6 +11,7 @@ class FaqFactory extends AbstractFactory
 {
     /**
      * @return \Pyz\Client\Faq\Zed\FaqZedStubInterface
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
     public function createFaqZedStub(): FaqZedStubInterface
     {
@@ -19,6 +20,7 @@ class FaqFactory extends AbstractFactory
 
     /**
      * @return \Spryker\Client\ZedRequest\ZedRequestClientInterface
+     * @throws \Spryker\Client\Kernel\Exception\Container\ContainerKeyNotFoundException
      */
     protected function getZedRequestClient(): ZedRequestClientInterface
     {

@@ -3,6 +3,7 @@
 namespace Pyz\Client\Faq\Zed;
 
 use Generated\Shared\Transfer\FaqCollectionTransfer;
+use Generated\Shared\Transfer\FaqVoteTransfer;
 use Spryker\Client\ZedRequest\ZedRequestClientInterface;
 
 class FaqZedStub implements FaqZedStubInterface
@@ -21,9 +22,8 @@ class FaqZedStub implements FaqZedStubInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\FaqTransfer $faqTransfer
-     *
-     * @return \Generated\Shared\Transfer\FaqTransfer
+     * @param FaqCollectionTransfer $faqCollectionTransfer
+     * @return \Generated\Shared\Transfer\FaqCollectionTransfer
      */
     public function getFaqCollection(FaqCollectionTransfer $faqCollectionTransfer): FaqCollectionTransfer
     {
@@ -35,5 +35,22 @@ class FaqZedStub implements FaqZedStubInterface
         );
 
         return $faqCollectionTransfer;
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\FaqVoteTransfer $faqVoteTransfer
+     *
+     * @return \Generated\Shared\Transfer\FaqVoteTransfer
+     */
+    public function addVote(FaqVoteTransfer $faqVoteTransfer
+    ): FaqVoteTransfer {
+        /** @var \Generated\Shared\Transfer\FaqVoteTransfer $voteTransfer */
+
+        $voteTransfer = $this->zedRequestClient->call(
+            '/faq/gateway/add-vote',
+            $faqVoteTransfer
+        );
+
+        return $voteTransfer;
     }
 }

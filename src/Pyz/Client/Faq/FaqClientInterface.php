@@ -3,6 +3,7 @@
 namespace Pyz\Client\Faq;
 
 use Generated\Shared\Transfer\FaqCollectionTransfer;
+use Generated\Shared\Transfer\FaqVoteTransfer;
 
 interface FaqClientInterface
 {
@@ -18,4 +19,16 @@ interface FaqClientInterface
      *
      */
     public function getFaqCollection(FaqCollectionTransfer $faqCollectionTransfer): FaqCollectionTransfer;
+
+    /**
+     * Specification:
+     * - Send user vote to Zed
+     *
+     * @param \Generated\Shared\Transfer\FaqVoteTransfer $faqVoteTransfer
+     *
+     * @return \Generated\Shared\Transfer\FaqVoteTransfer
+     * @api
+     *
+     */
+    public function addVote(FaqVoteTransfer $faqVoteTransfer): FaqVoteTransfer;
 }
