@@ -34,9 +34,12 @@ The acquired token must be entered for each endpoint in Authorization->Token. Be
 1) Get all frequently asked questions with answers and status:
    http://glue.de.spryker.local/faq
 
+Method GET must be choosed
 
-2) Get One frequently asked question by typing its id:
+3) Get One frequently asked question by typing its id:
    http://glue.de.spryker.local/faq/1
+
+Method GET must be choosed
 
 After faq/ must be typed id number of the question.
 
@@ -93,6 +96,7 @@ Data transfer between Glue and Zed is done by schema (src/Pyz/Shared/Faq/Transfe
     </transfer>
 </transfers>
 ```
+
 In the console, type:
 
 docker/sdk cli
