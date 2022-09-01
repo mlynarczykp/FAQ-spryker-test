@@ -18,3 +18,7 @@ What is PHP?,"PHP stands for PHP: Hypertext Preprocessor. This confuses many peo
 To import data to database table user has to type in console:
 1) docker/sdk cli
 2) console:data:import:faq
+
+### CAUTION
+
+The module has none functional unit test.
