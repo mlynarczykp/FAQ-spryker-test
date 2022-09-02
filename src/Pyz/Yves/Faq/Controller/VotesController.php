@@ -41,8 +41,10 @@ class VotesController extends AbstractController
 
             if ($voteUp) {
                 $data = (new FaqVoteTransfer())
+                    ->setIdVote(1)
                     ->setIdCustomer(1)
                     ->setIdFaq($faqId)
+                    ->setVoteDown(1)
                     ->setVoteUp($voteUp);
             } else {
                 $data = (new FaqVoteTransfer())
@@ -51,6 +53,10 @@ class VotesController extends AbstractController
                     ->setVoteDown($voteDown);
             }
 
+//            echo '<pre>';
+//            var_dump($data);
+//            echo '</pre>';
+//            die;
             $this->getClient()->addVote($data);
 
             $this->addSuccessMessage('Your vote has been added');

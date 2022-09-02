@@ -1,6 +1,6 @@
 question,answer,is_active
-What is PHP?,"PHP stands for PHP: Hypertext Preprocessor. This confuses many people because the first word of the acronym is the acronym. This type of acronym is called a recursive acronym",true
-What does PHP stand for?,"PHP stands for PHP: Hypertext Preprocessor. This confuses many people because the first word of the acronym is the acronym.", true
-Does Spryker have features?,"Yes. Like iOS or macOS, Spryker is an operating system that offers a range of features. These features consist of modules and form capabilities.",true
-Can third-party items be integrated?,"Yes. We refer to third-party integrations as industry partners. They include services for payment, shipment, on-site search, recommendation engines",true
-Is Spryker a shop system?,"No. Spryker is an operating system for commerce. In our world, a B2C shop is only one of many apps",true
+What is PHP?,"PHP is an HTML-embedded scripting language. Much of its syntax is borrowed from C, Java and Perl with a couple of unique PHP-specific features thrown in.",false
+What does PHP stand for?,"PHP stands for PHP: Hypertext Preprocessor. This confuses many people because the first word of the acronym is the acronym.",false
+Does Spryker have features?,"Yes. Like iOS or macOS, Spryker is an operating system that offers a range of features. These features consist of modules and form capabilities.",false
+Can third-party items be integrated?,"Yes. We refer to third-party integrations as industry partners. They include services for payment, shipment, on-site search, recommendation engines",false
+Is Spryker a shop system?,"No. Spryker is an operating system for commerce. In our world, a B2C shop is only one of many apps",false

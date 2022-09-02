@@ -25,9 +25,9 @@ class GatewayController extends AbstractGatewayController
     /**
      * @param \Generated\Shared\Transfer\FaqTransfer $faqTransfer
      *
-     * @return \Generated\Shared\Transfer\FaqTransfer $faqTransfer
+     * @return \Generated\Shared\Transfer\FaqTransfer $faqTransfer|null
      */
-    public function getOneFaqAction(FaqTransfer $faqTransfer): FaqTransfer
+    public function getOneFaqAction(FaqTransfer $faqTransfer): ?FaqTransfer
     {
         return $this->getFacade()->getOneFaq($faqTransfer);
     }

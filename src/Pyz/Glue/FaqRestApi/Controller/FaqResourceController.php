@@ -26,6 +26,7 @@ class FaqResourceController extends AbstractController
         } else {
             return $this->getFactory()->createFaqReader()->getOneFaq($restRequest, $id);
         }
+
     }
 
     /**

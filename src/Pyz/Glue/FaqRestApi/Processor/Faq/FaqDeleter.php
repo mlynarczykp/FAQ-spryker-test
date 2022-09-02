@@ -40,7 +40,7 @@ class FaqDeleter implements FaqDeleterInterface
         $restApi = $this->faqRestApiClient
             ->deleteFaq($faqTransfer);
 
-        if ($restApi) {
+               if ($faqTransfer->getIdQuestion()) {
             return $restResponse->addError(
                 (new RestErrorMessageTransfer())
                     ->setCode('Question deleted successfully')
@@ -49,8 +49,8 @@ class FaqDeleter implements FaqDeleterInterface
         } else {
             return $restResponse->addError(
                 (new RestErrorMessageTransfer())
-                    ->setCode('An error occurred while deleting')
-                    ->setStatus(500)
+                    ->setCode('Faq with given id is not found')
+                    ->setStatus(404)
             );
         }
     }

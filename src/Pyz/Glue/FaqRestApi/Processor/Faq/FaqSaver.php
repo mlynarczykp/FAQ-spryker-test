@@ -40,12 +40,15 @@ class FaqSaver implements FaqSaverInterface
         $restApi = $this->faqRestApiClient
             ->saveFaq($faqTransfer);
 
+        var_dump($restApi->getIdQuestion());
+
         if ($restApi) {
-            return $restResponse->addError(
-                (new RestErrorMessageTransfer())
-                    ->setCode('Question created successfully')
-                    ->setStatus(201)
-            );
+            return $restResponse->addResource($restRequest);
+//            return $restResponse->addError(
+//                (new RestErrorMessageTransfer())
+//                    ->setCode('Question created successfully')
+//                    ->setStatus(201)
+//            );
         } else {
             return $restResponse->addError(
                 (new RestErrorMessageTransfer())

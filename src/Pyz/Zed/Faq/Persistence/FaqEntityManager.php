@@ -24,12 +24,14 @@ class FaqEntityManager extends AbstractEntityManager implements FaqEntityManager
             ->filterByIdQuestion($faqTransfer->getIdQuestion())
             ->findOneOrCreate();
 
-        // fill up entity
-        $faqEntity->fromArray($faqTransfer->toArray());
-        $faqEntity->save();
+        if ($faqEntity->getIdQuestion() !== null) {
+            // fill up entity
+            $faqEntity->fromArray($faqTransfer->toArray());
+            $faqEntity->save();
 
-        // update transfer based on entity (like id_question field)
-        $faqTransfer->fromArray($faqEntity->toArray());
+            // update transfer based on entity (like id_question field)
+            $faqTransfer->fromArray($faqEntity->toArray());
+        }
 
         return $faqTransfer;
     }
@@ -59,6 +61,7 @@ class FaqEntityManager extends AbstractEntityManager implements FaqEntityManager
      * @param \Generated\Shared\Transfer\FaqVoteTransfer $faqVoteTransfer
      *
      * @return \Generated\Shared\Transfer\FaqVoteTransfer
+     * @throws \Propel\Runtime\Exception\PropelException
      */
     public function addVote(FaqVoteTransfer $faqVoteTransfer): FaqVoteTransfer
     {

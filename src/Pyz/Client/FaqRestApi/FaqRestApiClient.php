@@ -12,6 +12,7 @@ use Spryker\Client\Kernel\AbstractClient;
 class FaqRestApiClient extends AbstractClient implements FaqRestApiClientInterface
 {
     /**
+     * @param FaqCollectionTransfer $faqCollectionTransfer
      * @return \Generated\Shared\Transfer\FaqCollectionTransfer
      * @api
      */
@@ -26,7 +27,7 @@ class FaqRestApiClient extends AbstractClient implements FaqRestApiClientInterfa
      * @return \Generated\Shared\Transfer\FaqTransfer
      * @api
      */
-    public function getOneFaq(FaqTransfer $faqTransfer): FaqTransfer
+    public function getOneFaq(FaqTransfer $faqTransfer): ?FaqTransfer
     {
         return $this->getFactory()
             ->createFaqZedStub()
@@ -34,6 +35,7 @@ class FaqRestApiClient extends AbstractClient implements FaqRestApiClientInterfa
     }
 
     /**
+     * @param FaqTransfer $faqTransfer
      * @return \Generated\Shared\Transfer\FaqTransfer
      * @api
      */

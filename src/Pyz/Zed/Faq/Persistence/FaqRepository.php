@@ -11,8 +11,7 @@ use Generated\Shared\Transfer\FaqCollectionTransfer;
 class FaqRepository extends AbstractRepository implements FaqRepositoryInterface
 {
     /**
-     * @param int $idfaq
-     *
+     * @param int $idFaq
      * @return \Generated\Shared\Transfer\FaqTransfer|null
      */
     public function findFaqById(int $idFaq): ?FaqTransfer
@@ -20,8 +19,10 @@ class FaqRepository extends AbstractRepository implements FaqRepositoryInterface
         $faqEntity = $this->createPyzFaqQuery()
             ->findOneByIdQuestion($idFaq);
 
-        if (!$faqEntity) {
-            return null;
+        if ($faqEntity == null) {
+            $nullEntity = new FaqTransfer();
+            $nullEntity->setIdQuestion(0);
+            return $nullEntity;
         }
 
         return $this->mapEntityToTransfer($faqEntity);

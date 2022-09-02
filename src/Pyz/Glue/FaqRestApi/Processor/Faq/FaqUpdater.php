@@ -35,12 +35,18 @@ class FaqUpdater implements FaqUpdaterInterface
      */
     public function updateFaq(RestRequestInterface $restRequest, FaqTransfer $faqTransfer): RestResponseInterface
     {
+$a = $restRequest->getResource()->getId();
+//        var_dump($restRequest->getResource()->getId());
+//        die;
+
         $restResponse = $this->restResourceBuilder->createRestResponse();
 
         $restApi = $this->faqRestApiClient
             ->updateFaq($faqTransfer);
 
-        if ($restApi) {
+
+
+        if ($restApi->getIdQuestion() == $a) {
             return $restResponse->addError(
                 (new RestErrorMessageTransfer())
                     ->setCode('Question updated successfully')

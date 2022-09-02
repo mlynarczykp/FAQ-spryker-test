@@ -63,9 +63,10 @@ class FaqReader implements FaqReaderInterface
 
     /**
      * @param RestRequestInterface $restRequest
+     * @param $id
      * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
      */
-    public function getOneFaq(RestRequestInterface $restRequest, $id): RestResponseInterface
+    public function getOneFaq(RestRequestInterface $restRequest, $id): ?RestResponseInterface
     {
         $restResponse = $this->restResourceBuilder->createRestResponse();
 
@@ -73,7 +74,7 @@ class FaqReader implements FaqReaderInterface
         $faqTransfer->setIdQuestion($id);
         $faqTransfer = $this->faqRestApiClient->getOneFaq($faqTransfer);
 
-        if (!$faqTransfer) {
+        if ($faqTransfer->getIdQuestion() == 0) {
             $restResponse->addError(
                 (new RestErrorMessageTransfer())
                     ->setCode('Faq with given id is not found')

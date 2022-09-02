@@ -22,6 +22,7 @@ class FaqRestApiZedStub implements FaqRestApiZedStubInterface
     }
 
     /**
+     * @param FaqCollectionTransfer $faqCollectionTransfer
      * @return \Generated\Shared\Transfer\FaqCollectionTransfer
      */
     public function getFaqCollection(FaqCollectionTransfer $faqCollectionTransfer): FaqCollectionTransfer
@@ -35,7 +36,11 @@ class FaqRestApiZedStub implements FaqRestApiZedStubInterface
         return $faqCollectionTransfer;
     }
 
-    public function getOneFaq(FaqTransfer $faqTransfer): FaqTransfer
+    /**
+     * @param \Generated\Shared\Transfer\FaqTransfer $faqTransfer
+     * @return \Generated\Shared\Transfer\FaqTransfer|null
+     */
+    public function getOneFaq(FaqTransfer $faqTransfer): ?FaqTransfer
     {
         /** @var null|\Generated\Shared\Transfer\FaqTransfer $faqTransfer */
 

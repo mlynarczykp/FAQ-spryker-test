@@ -17,7 +17,7 @@ interface FaqRestApiClientInterface
      * @return \Generated\Shared\Transfer\FaqTransfer
      * @api
      */
-    public function getOneFaq(FaqTransfer $faqTransfer): FaqTransfer;
+    public function getOneFaq(FaqTransfer $faqTransfer): ?FaqTransfer;
 
     /**
      * @return \Generated\Shared\Transfer\FaqTransfer

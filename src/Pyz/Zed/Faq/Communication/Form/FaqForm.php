@@ -47,8 +47,8 @@ class FaqForm extends AbstractType
     {
         $this->addQuestionField($builder)
             ->addAnswerField($builder)
-            ->addSubmitButton($builder)
-            ->addSwitchField($builder);
+            ->addSwitchField($builder)
+            ->addSubmitButton($builder);
     }
 
     /**

@@ -9,7 +9,7 @@ interface FaqRestApiZedStubInterface
 {
     public function getFaqCollection(FaqCollectionTransfer $faqCollectionTransfer): FaqCollectionTransfer;
 
-    public function getOneFaq(FaqTransfer $faqTransfer): FaqTransfer;
+    public function getOneFaq(FaqTransfer $faqTransfer): ?FaqTransfer;
 
     public function saveFaq(FaqTransfer $faqTransfer): FaqTransfer;
 
